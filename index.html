@@ -11,6 +11,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<!-- 引入 echarts.js -->
+    	<script src="assets/js/echarts.min.js"></script>
 	</head>
 	<body class="is-preload">
 
@@ -54,14 +56,665 @@
 						<!-- Featured Post -->
 							<article class="post featured">
 								<header class="major">
-									<span class="date">April 25, 2017</span>
-									<h2><a href="#">And this is a<br />
-									massive headline</a></h2>
-									<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
-									facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
-									amet nullam sed etiam veroeros.</p>
+									<span class="date">December 31, 2020</span>
+									<h2><a href="#">将鼠标移动到下面的旭日图<br />
+									会有交互的效果</a></h2>
+									<p>来源于Echarts。但是不知道为啥动态的展示经常失败</p>
 								</header>
-								<a href="#" class="image main"><img src="images/pic01.jpg" alt="" /></a>
+<!--								<a href="#" class="image main"><img src="images/pic01.jpg" alt="" /></a>-->
+								<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    							<div id="eeecharts" style="width: 70vw;height:80vh;"
+
+								></div>
+								<script type="text/javascript">
+								// 基于准备好的dom，初始化echarts实例
+       								 var myChart = echarts.init(document.getElementById('eeecharts'));
+	// 							// 指定图表的配置项和数据
+	// 									var option = {
+	//
+	// 										tooltip: {},
+	// 										grid: {
+    //     // x: '30%', //相当于距离左边效果:padding-left
+    //     // y: '40%',  //相当于距离上边效果:padding-top
+    //     // bottom: '3%',
+	// 											top:"10%",
+	// 											bottom:"10%",
+	// 											right:"10%",
+	// 											left:"10%",
+    //     containLabel: true
+    // },
+
+
+         var colors = ['#FFAE57', '#FF7853', '#EA5151', '#CC3F57', '#9A2555'];
+var bgColor = '#2E2733';
+
+var itemStyle = {
+    star5: {
+        color: colors[0]
+    },
+    star4: {
+        color: colors[1]
+    },
+    star3: {
+        color: colors[2]
+    },
+    star2: {
+        color: colors[3]
+    }
+};
+
+var data = [{
+    name: '虚构',
+    itemStyle: {
+        color: colors[1]
+    },
+    children: [{
+        name: '小说',
+        children: [{
+            name: '5☆',
+            children: [{
+                name: '疼'
+            }, {
+                name: '慈悲'
+            }, {
+                name: '楼下的房客'
+            }]
+        }, {
+            name: '4☆',
+            children: [{
+                name: '虚无的十字架'
+            }, {
+                name: '无声告白'
+            }, {
+                name: '童年的终结'
+            }]
+        }, {
+            name: '3☆',
+            children: [{
+                name: '疯癫老人日记'
+            }]
+        }]
+    }, {
+        name: '其他',
+        children: [{
+            name: '5☆',
+            children: [{
+                name: '纳博科夫短篇小说全集'
+            }]
+        }, {
+            name: '4☆',
+            children: [{
+                name: '安魂曲'
+            }, {
+                name: '人生拼图版'
+            }]
+        }, {
+            name: '3☆',
+            children: [{
+                name: '比起爱你，我更需要你'
+            }]
+        }]
+    }]
+}, {
+    name: '非虚构',
+    itemStyle: {
+        color: colors[2]
+    },
+    children: [{
+        name: '设计',
+        children: [{
+            name: '5☆',
+            children: [{
+                name: '无界面交互'
+            }]
+        }, {
+            name: '4☆',
+            children: [{
+                name: '数字绘图的光照与渲染技术'
+            }, {
+                name: '日本建筑解剖书'
+            }]
+        }, {
+            name: '3☆',
+            children: [{
+                name: '奇幻世界艺术\n&RPG地图绘制讲座'
+            }]
+        }]
+    }, {
+        name: '社科',
+        children: [{
+            name: '5☆',
+            children: [{
+                name: '痛点'
+            }]
+        }, {
+            name: '4☆',
+            children: [{
+                name: '卓有成效的管理者'
+            }, {
+                name: '进化'
+            }, {
+                name: '后物欲时代的来临',
+            }]
+        }, {
+            name: '3☆',
+            children: [{
+                name: '疯癫与文明'
+            }]
+        }]
+    }, {
+        name: '心理',
+        children: [{
+            name: '5☆',
+            children: [{
+                name: '我们时代的神经症人格'
+            }]
+        }, {
+            name: '4☆',
+            children: [{
+                name: '皮格马利翁效应'
+            }, {
+                name: '受伤的人'
+            }]
+        }, {
+            name: '3☆',
+        }, {
+            name: '2☆',
+            children: [{
+                name: '迷恋'
+            }]
+        }]
+    }, {
+        name: '居家',
+        children: [{
+            name: '4☆',
+            children: [{
+                name: '把房子住成家'
+            }, {
+                name: '只过必要生活'
+            }, {
+                name: '北欧简约风格'
+            }]
+        }]
+    }, {
+        name: '绘本',
+        children: [{
+            name: '5☆',
+            children: [{
+                name: '设计诗'
+            }]
+        }, {
+            name: '4☆',
+            children: [{
+                name: '假如生活糊弄了你'
+            }, {
+                name: '博物学家的神秘动物图鉴'
+            }]
+        }, {
+            name: '3☆',
+            children: [{
+                name: '方向'
+            }]
+        }]
+    }, {
+        name: '哲学',
+        children: [{
+            name: '4☆',
+            children: [{
+                name: '人生的智慧'
+            }]
+        }]
+    }, {
+        name: '技术',
+        children: [{
+            name: '5☆',
+            children: [{
+                name: '代码整洁之道'
+            }]
+        }, {
+            name: '4☆',
+            children: [{
+                name: 'Three.js 开发指南'
+            }]
+        }]
+    }]
+}];
+
+for (var j = 0; j < data.length; ++j) {
+    var level1 = data[j].children;
+    for (var i = 0; i < level1.length; ++i) {
+        var block = level1[i].children;
+        var bookScore = [];
+        var bookScoreId;
+        for (var star = 0; star < block.length; ++star) {
+            var style = (function (name) {
+                switch (name) {
+                    case '5☆':
+                        bookScoreId = 0;
+                        return itemStyle.star5;
+                    case '4☆':
+                        bookScoreId = 1;
+                        return itemStyle.star4;
+                    case '3☆':
+                        bookScoreId = 2;
+                        return itemStyle.star3;
+                    case '2☆':
+                        bookScoreId = 3;
+                        return itemStyle.star2;
+                }
+            })(block[star].name);
+
+            block[star].label = {
+                color: style.color,
+                downplay: {
+                    opacity: 0.5
+                }
+            };
+
+            if (block[star].children) {
+                style = {
+                    opacity: 1,
+                    color: style.color
+                };
+                block[star].children.forEach(function (book) {
+                    book.value = 1;
+                    book.itemStyle = style;
+
+                    book.label = {
+                        color: style.color
+                    };
+
+                    var value = 1;
+                    if (bookScoreId === 0 || bookScoreId === 3) {
+                        value = 5;
+                    }
+
+                    if (bookScore[bookScoreId]) {
+                        bookScore[bookScoreId].value += value;
+                    }
+                    else {
+                        bookScore[bookScoreId] = {
+                            color: colors[bookScoreId],
+                            value: value
+                        };
+                    }
+                });
+            }
+        }
+
+        level1[i].itemStyle = {
+            color: data[j].itemStyle.color
+        };
+    }
+}
+
+option = {
+    backgroundColor: bgColor,
+    color: colors,
+    series: [{
+        type: 'sunburst',
+        center: ['50%', '48%'],
+        data: data,
+        sort: function (a, b) {
+            if (a.depth === 1) {
+                return b.getValue() - a.getValue();
+            }
+            else {
+                return a.dataIndex - b.dataIndex;
+            }
+        },
+        label: {
+            rotate: 'radial',
+            color: bgColor
+        },
+        itemStyle: {
+            borderColor: bgColor,
+            borderWidth: 2
+        },
+        levels: [{}, {
+            r0: 0,
+            r: 40,
+            label: {
+                rotate: 0
+            }
+        }, {
+            r0: 40,
+            r: 105
+        }, {
+            r0: 115,
+            r: 140,
+            itemStyle: {
+                shadowBlur: 2,
+                shadowColor: colors[2],
+                color: 'transparent'
+            },
+            label: {
+                rotate: 'tangential',
+                fontSize: 10,
+                color: colors[0]
+            }
+        }, {
+            r0: 140,
+            r: 145,
+            itemStyle: {
+                shadowBlur: 80,
+                shadowColor: colors[0]
+            },
+            label: {
+                position: 'outside',
+                textShadowBlur: 5,
+                textShadowColor: '#333',
+            },
+            downplay: {
+                label: {
+                    opacity: 0.5
+                }
+            }
+        }]
+    }]
+};
+
+
+
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+        window.onresize = function () {
+        myChart.resize();
+    }
+
+    </script>
+
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="echar2" style="width: 80vw;height:70vh;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('echar2'));
+
+        // 指定图表的配置项和数据
+        option = {
+    backgroundColor: '#1b1b1b',
+    tooltip: {
+        formatter: '{a} <br/>{c} {b}'
+    },
+    toolbox: {
+        show: true,
+        feature: {
+            mark: {show: true},
+            restore: {show: true},
+            saveAsImage: {show: true}
+        }
+    },
+    series: [
+        {
+            name: '速度',
+            type: 'gauge',
+            min: 0,
+            max: 220,
+            splitNumber: 11,
+            radius: '50%',
+            axisLine: {            // 坐标轴线
+                lineStyle: {       // 属性lineStyle控制线条样式
+                    color: [[0.09, 'lime'], [0.82, '#1e90ff'], [1, '#ff4500']],
+                    width: 3,
+                    shadowColor: '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            axisLabel: {            // 坐标轴小标记
+                fontWeight: 'bolder',
+                color: '#fff',
+                shadowColor: '#fff', //默认透明
+                shadowBlur: 10
+            },
+            axisTick: {            // 坐标轴小标记
+                length: 15,        // 属性length控制线长
+                lineStyle: {       // 属性lineStyle控制线条样式
+                    color: 'auto',
+                    shadowColor: '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            splitLine: {           // 分隔线
+                length: 25,         // 属性length控制线长
+                lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                    width: 3,
+                    color: '#fff',
+                    shadowColor: '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            pointer: {           // 分隔线
+                shadowColor: '#fff', //默认透明
+                shadowBlur: 5
+            },
+            title: {
+                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                    fontWeight: 'bolder',
+                    fontSize: 20,
+                    fontStyle: 'italic',
+                    color: '#fff',
+                    shadowColor: '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            detail: {
+                backgroundColor: 'rgba(30,144,255,0.8)',
+                borderWidth: 1,
+                borderColor: '#fff',
+                shadowColor: '#fff', //默认透明
+                shadowBlur: 5,
+                offsetCenter: [0, '50%'],       // x, y，单位px
+                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                    fontWeight: 'bolder',
+                    color: '#fff'
+                }
+            },
+            data: [{value: 40, name: 'km/h'}]
+        },
+        {
+            name: '转速',
+            type: 'gauge',
+            center: ['25%', '55%'],    // 默认全局居中
+            radius: '30%',
+            min: 0,
+            max: 7,
+            endAngle: 45,
+            splitNumber: 7,
+            axisLine: {            // 坐标轴线
+                lineStyle: {       // 属性lineStyle控制线条样式
+                    color: [[0.29, 'lime'], [0.86, '#1e90ff'], [1, '#ff4500']],
+                    width: 2,
+                    shadowColor: '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            axisLabel: {            // 坐标轴小标记
+                fontWeight: 'bolder',
+                color: '#fff',
+                shadowColor: '#fff', //默认透明
+                shadowBlur: 10
+            },
+            axisTick: {            // 坐标轴小标记
+                length: 12,        // 属性length控制线长
+                lineStyle: {       // 属性lineStyle控制线条样式
+                    color: 'auto',
+                    shadowColor: '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            splitLine: {           // 分隔线
+                length: 20,         // 属性length控制线长
+                lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                    width: 3,
+                    color: '#fff',
+                    shadowColor: '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            pointer: {
+                width: 5,
+                shadowColor: '#fff', //默认透明
+                shadowBlur: 5
+            },
+            title: {
+                offsetCenter: [0, '-30%'],       // x, y，单位px
+                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                    fontWeight: 'bolder',
+                    fontStyle: 'italic',
+                    color: '#fff',
+                    shadowColor: '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            detail: {
+                //backgroundColor: 'rgba(30,144,255,0.8)',
+                // borderWidth: 1,
+                borderColor: '#fff',
+                shadowColor: '#fff', //默认透明
+                shadowBlur: 5,
+                width: 80,
+                height: 30,
+                offsetCenter: [25, '20%'],       // x, y，单位px
+                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                    fontWeight: 'bolder',
+                    color: '#fff'
+                }
+            },
+            data: [{value: 1.5, name: 'x1000 r/min'}]
+        },
+        {
+            name: '油表',
+            type: 'gauge',
+            center: ['75%', '50%'],    // 默认全局居中
+            radius: '30%',
+            min: 0,
+            max: 2,
+            startAngle: 135,
+            endAngle: 45,
+            splitNumber: 2,
+            axisLine: {            // 坐标轴线
+                lineStyle: {       // 属性lineStyle控制线条样式
+                    color: [[0.2, 'lime'], [0.8, '#1e90ff'], [1, '#ff4500']],
+                    width: 2,
+                    shadowColor: '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            axisTick: {            // 坐标轴小标记
+                length: 12,        // 属性length控制线长
+                lineStyle: {       // 属性lineStyle控制线条样式
+                    color: 'auto',
+                    shadowColor: '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            axisLabel: {
+                fontWeight: 'bolder',
+                color: '#fff',
+                shadowColor: '#fff', //默认透明
+                shadowBlur: 10,
+                formatter: function (v){
+                    switch (v + '') {
+                        case '0': return 'E';
+                        case '1': return 'Gas';
+                        case '2': return 'F';
+                    }
+                }
+            },
+            splitLine: {           // 分隔线
+                length:15,         // 属性length控制线长
+                lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                    width:3,
+                    color: '#fff',
+                    shadowColor: '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            pointer: {
+                width:2,
+                shadowColor: '#fff', //默认透明
+                shadowBlur: 5
+            },
+            title: {
+                show: false
+            },
+            detail: {
+                show: false
+            },
+            data: [{value: 0.5, name: 'gas'}]
+        },
+        {
+            name: '水表',
+            type: 'gauge',
+            center: ['75%', '50%'],    // 默认全局居中
+            radius: '30%',
+            min: 0,
+            max: 2,
+            startAngle: 315,
+            endAngle: 225,
+            splitNumber: 2,
+            axisLine: {            // 坐标轴线
+                lineStyle: {       // 属性lineStyle控制线条样式
+                    color: [[0.2, 'lime'], [0.8, '#1e90ff'], [1, '#ff4500']],
+                    width: 2,
+                    shadowColor: '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            axisTick: {            // 坐标轴小标记
+                show: false
+            },
+            axisLabel: {
+                fontWeight: 'bolder',
+                color: '#fff',
+                shadowColor: '#fff', //默认透明
+                shadowBlur: 10,
+                formatter: function(v){
+                    switch (v + '') {
+                        case '0': return 'H';
+                        case '1': return 'Water';
+                        case '2': return 'C';
+                    }
+                }
+            },
+            splitLine: {           // 分隔线
+                length: 15,         // 属性length控制线长
+                lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                    width: 3,
+                    color: '#fff',
+                    shadowColor: '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            pointer: {
+                width: 2,
+                shadowColor: '#fff', //默认透明
+                shadowBlur: 5
+            },
+            title: {
+                show: false
+            },
+            detail: {
+                show: false
+            },
+            data:[{value: 0.5, name: 'gas'}]
+        }
+    ]
+};
+
+setInterval(function (){
+    option.series[0].data[0].value = (Math.random()*100).toFixed(2) - 0;
+    option.series[1].data[0].value = (Math.random()*7).toFixed(2) - 0;
+    option.series[2].data[0].value = (Math.random()*2).toFixed(2) - 0;
+    option.series[3].data[0].value = (Math.random()*2).toFixed(2) - 0;
+    myChart.setOption(option);
+},2000);
+
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
 								<ul class="actions special">
 									<li><a href="#" class="button large">Full Story</a></li>
 								</ul>
